@@ -28,6 +28,7 @@ public class SuggestingDoctorServiceImpl implements SuggestingDoctorService {
 	@Override
 	public List<Doctor> searchDoctorByPatientId(Integer patientId)
 			throws DoctorNotFoundException, PatientNotFoundException {
+		
 
 		Optional<Patient> opt = patientRepo.findById(patientId);
 		if (opt.isEmpty())
@@ -39,14 +40,19 @@ public class SuggestingDoctorServiceImpl implements SuggestingDoctorService {
 		
 		
 		
-
+	
 		List<Doctor> doctorList = doctorRepo.findAll();
 		
 		
 //getting all doctors of patient's location
+		for(Doctor d:doctorList)
+		System.out.println(d.getCity().toString());
+		
+		
 		List<Doctor> filteredListBasedOnLacation = doctorList.stream()
 				.filter(doctor -> (doctor.getCity().toString().equalsIgnoreCase(location)))
 				.collect(Collectors.toList());
+	
 		if (filteredListBasedOnLacation.size() == 0) {
 			throw new DoctorNotFoundException("We are still waiting to expand to your location");
 		}

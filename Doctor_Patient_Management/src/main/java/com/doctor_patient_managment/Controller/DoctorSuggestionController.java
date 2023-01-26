@@ -21,7 +21,7 @@ public class DoctorSuggestionController {
 	@Autowired
 	private SuggestingDoctorServiceImpl suggestionService;
 	
-	@GetMapping("/doctors/{patientId}")
+@GetMapping("/doctors/{patientId}")
   public ResponseEntity<List<Doctor>> getAllSuggestedDoctor(@PathVariable("patientId") Integer id) throws DoctorNotFoundException, PatientNotFoundException{
 	
 	
