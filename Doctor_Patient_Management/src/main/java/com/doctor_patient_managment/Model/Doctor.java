@@ -1,6 +1,9 @@
 package com.doctor_patient_managment.Model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -17,15 +20,18 @@ public class Doctor {
 	@Size(min = 3, message = "name should atleast 3 character")
 	private String doctorName;
 	
-	@Size(max = 20, message = "city name should not be more than 20 character")
+	@Column(columnDefinition = "VARCHAR(30)")
+	@Enumerated(EnumType.STRING)
 	private City city;
 	
 	@Email(message = "please use valid email address")
 	private String email;
 	
-	@Pattern(regexp = "^\\{10}$", message = "please enter valid phone number")
+	@Pattern(regexp="(^$|[0-9]{10})", message = "please enter valid phone number")
 	private String phoneNumber;
 	
+	@Column(columnDefinition = "VARCHAR(30)")
+	@Enumerated(EnumType.STRING)
 	private Speciality speciality;
 
 
@@ -86,7 +92,7 @@ public class Doctor {
 	public Doctor(@Size(min = 3, message = "name should atleast 3 character") String doctorName,
 			@Size(max = 20, message = "city name should not be more than 20 character") City city,
 			@Email(message = "please use valid email address") String email,
-			@Pattern(regexp = "^\\{10}$", message = "please enter valid phone number") String phoneNumber,
+			@Pattern(regexp="(^$|[0-9]{10})", message = "please enter valid phone number") String phoneNumber,
 			Speciality speciality) {
 		super();
 		this.doctorName = doctorName;

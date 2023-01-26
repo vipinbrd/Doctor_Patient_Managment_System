@@ -1,12 +1,13 @@
 package com.doctor_patient_managment.Model;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
-
+@Entity
 public class Patient {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,8 +21,7 @@ public class Patient {
 	
 	@Email(message = "please use valid email address")
 	private String email;
-	
-	@Pattern(regexp = "^\\{10}$", message = "please enter valid phone number")
+	@Pattern(regexp="(^$|[0-9]{10})", message = "please enter valid phone number")
 	private String phoneNumber;
 	
 	private String symtom;
@@ -88,7 +88,7 @@ public class Patient {
 	public Patient(@Size(min = 3, message = "name should atleast 3 character") String patientName,
 			@Size(max = 20, message = "city name should not be more than 20 character") String city,
 			@Email(message = "please use valid email address") String email,
-			@Pattern(regexp = "^\\{10}$", message = "please enter valid phone number") String phoneNumber,
+			@Pattern(regexp="(^$|[0-9]{10})", message = "please enter valid phone number") String phoneNumber,
 			String symtom) {
 		super();
 		this.patientName = patientName;
