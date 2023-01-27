@@ -22,9 +22,9 @@
 ## Features
 * We can register a doctor
 * delete any doctor by DoctorId
-*register a patient
-*delete a patient by patientID
-*Suggest best doctors based on patients location and symtoms
+* register a patient
+* delete a patient by patientID
+* Suggest best doctors based on patients location and symtoms
 <!-- ============================================  MODULES ======================================================  -->
 
 ## Modules
