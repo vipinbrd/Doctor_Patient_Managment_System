@@ -28,7 +28,9 @@ private PatientRepository patientRepo;
 		Optional<Patient> opt = patientRepo.findById(PatientId);
 		if (opt.isEmpty())
 			throw new PatientNotFoundException("Patient not found to given id");
-		else
+		else {
+			patientRepo.deleteById(PatientId);
+		}
 			return opt.get();
 	}
 

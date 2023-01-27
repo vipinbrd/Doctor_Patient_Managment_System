@@ -26,7 +26,9 @@ public class DoctorServiceImpl implements DoctorService {
 		Optional<Doctor> opt = doctorRepo.findById(doctorId);
 		if (opt.isEmpty())
 			throw new DoctorNotFoundException("Doctor not found to given id");
-		else
+		else {
+			doctorRepo.deleteById(doctorId);
+		}
 			return opt.get();
 	}
 
