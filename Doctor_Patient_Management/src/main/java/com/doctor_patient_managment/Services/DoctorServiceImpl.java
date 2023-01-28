@@ -1,4 +1,4 @@
-package com.doctor_patient_managment.ServiceIMPL;
+package com.doctor_patient_managment.Services;
 
 import java.util.Optional;
 

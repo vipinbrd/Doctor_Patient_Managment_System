@@ -13,7 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.doctor_patient_managment.Exceptions.DoctorNotFoundException;
 import com.doctor_patient_managment.Exceptions.PatientNotFoundException;
 import com.doctor_patient_managment.Model.Doctor;
-import com.doctor_patient_managment.ServiceIMPL.SuggestingDoctorServiceImpl;
+import com.doctor_patient_managment.Services.SuggestingDoctorServiceImpl;
+
 
 @RestController
 @RequestMapping("/api")
